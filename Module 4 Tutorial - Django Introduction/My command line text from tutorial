@@ -1,0 +1,168 @@
+PS C:\Users\Mekle> mkdir djangogirls
+
+
+    Directory: C:\Users\Mekle
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         4/13/2025   8:59 AM                djangogirls
+
+
+PS C:\Users\Mekle> cd djangogirls
+PS C:\Users\Mekle\djangogirls> python3 -m venv myvenv
+PS C:\Users\Mekle\djangogirls> myvenv\Scripts\activate
+(myvenv) PS C:\Users\Mekle\djangogirls> python -m pip isntall --upgrade pip
+ERROR: unknown command "isntall" - maybe you meant "install"
+(myvenv) PS C:\Users\Mekle\djangogirls> python -m pip install --upgrade pip
+Requirement already satisfied: pip in c:\users\mekle\djangogirls\myvenv\lib\site-packages (25.0.1)
+(myvenv) PS C:\Users\Mekle\djangogirls> pip install -r requirements.txt
+Collecting Django~=5.1.2 (from -r requirements.txt (line 1))
+  Downloading Django-5.1.8-py3-none-any.whl.metadata (4.1 kB)
+Collecting asgiref<4,>=3.8.1 (from Django~=5.1.2->-r requirements.txt (line 1))
+  Downloading asgiref-3.8.1-py3-none-any.whl.metadata (9.3 kB)
+Collecting sqlparse>=0.3.1 (from Django~=5.1.2->-r requirements.txt (line 1))
+  Downloading sqlparse-0.5.3-py3-none-any.whl.metadata (3.9 kB)
+Collecting tzdata (from Django~=5.1.2->-r requirements.txt (line 1))
+  Downloading tzdata-2025.2-py2.py3-none-any.whl.metadata (1.4 kB)
+Downloading Django-5.1.8-py3-none-any.whl (8.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.3/8.3 MB 11.7 MB/s eta 0:00:00
+Downloading asgiref-3.8.1-py3-none-any.whl (23 kB)
+Downloading sqlparse-0.5.3-py3-none-any.whl (44 kB)
+Downloading tzdata-2025.2-py2.py3-none-any.whl (347 kB)
+Installing collected packages: tzdata, sqlparse, asgiref, Django
+Successfully installed Django-5.1.8 asgiref-3.8.1 sqlparse-0.5.3 tzdata-2025.2
+(myvenv) PS C:\Users\Mekle\djangogirls> django-admin.exe startproject mysite .
+(myvenv) PS C:\Users\Mekle\djangogirls> python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying sessions.0001_initial... OK
+(myvenv) PS C:\Users\Mekle\djangogirls> python manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+April 13, 2025 - 09:16:53
+Django version 5.1.8, using settings 'mysite.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+(myvenv) PS C:\Users\Mekle\djangogirls> python manage.py startapp blog
+(myvenv) PS C:\Users\Mekle\djangogirls> python manage.py makemigrations blog
+Migrations for 'blog':
+  blog\migrations\0001_initial.py
+    + Create model Post
+(myvenv) PS C:\Users\Mekle\djangogirls> python manage.py migrate blog
+Operations to perform:
+  Apply all migrations: blog
+Running migrations:
+  Applying blog.0001_initial... OK
+(myvenv) PS C:\Users\Mekle\djangogirls> python manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+April 13, 2025 - 09:31:58
+Django version 5.1.8, using settings 'mysite.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+[13/Apr/2025 09:32:04] "GET /admin/ HTTP/1.1" 302 0
+[13/Apr/2025 09:32:04] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4165
+[13/Apr/2025 09:32:04] "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2804
+[13/Apr/2025 09:32:04] "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+[13/Apr/2025 09:32:04] "GET /static/admin/css/base.css HTTP/1.1" 200 22092
+[13/Apr/2025 09:32:04] "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+[13/Apr/2025 09:32:04] "GET /static/admin/css/login.css HTTP/1.1" 200 951
+[13/Apr/2025 09:32:04] "GET /static/admin/css/responsive.css HTTP/1.1" 200 17972
+[13/Apr/2025 09:32:04] "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+Not Found: /favicon.ico
+[13/Apr/2025 09:32:04] "GET /favicon.ico HTTP/1.1" 404 2208
+(myvenv) PS C:\Users\Mekle\djangogirls> python manage.py createsuperuser
+Username (leave blank to use 'mekle'): markklein
+Email address: meklei05@gmail.com
+Password: 
+Password (again):
+This password is too short. It must contain at least 8 characters.
+This password is too common.
+Bypass password validation and create user anyway? [y/N]: N
+Password: 
+Password (again):
+Superuser created successfully.
+(myvenv) PS C:\Users\Mekle\djangogirls> python manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+April 13, 2025 - 09:35:02
+Django version 5.1.8, using settings 'mysite.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+[13/Apr/2025 09:35:14] "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[13/Apr/2025 09:35:14] "GET /admin/ HTTP/1.1" 200 6642
+[13/Apr/2025 09:35:14] "GET /static/admin/css/base.css HTTP/1.1" 304 0
+[13/Apr/2025 09:35:14] "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+[13/Apr/2025 09:35:14] "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+[13/Apr/2025 09:35:14] "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+[13/Apr/2025 09:35:14] "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+[13/Apr/2025 09:35:14] "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+[13/Apr/2025 09:35:14] "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+[13/Apr/2025 09:35:14] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[13/Apr/2025 09:35:14] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[13/Apr/2025 09:35:31] "GET /admin/blog/post/add/ HTTP/1.1" 200 12735
+[13/Apr/2025 09:35:31] "GET /static/admin/css/forms.css HTTP/1.1" 200 8794
+[13/Apr/2025 09:35:31] "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[13/Apr/2025 09:35:31] "GET /static/admin/js/calendar.js HTTP/1.1" 200 9141
+[13/Apr/2025 09:35:31] "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+[13/Apr/2025 09:35:31] "GET /static/admin/css/widgets.css HTTP/1.1" 200 11564
+[13/Apr/2025 09:35:31] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[13/Apr/2025 09:35:31] "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+[13/Apr/2025 09:35:31] "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+[13/Apr/2025 09:35:31] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9097
+[13/Apr/2025 09:35:31] "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+[13/Apr/2025 09:35:31] "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+[13/Apr/2025 09:35:31] "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+[13/Apr/2025 09:35:31] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+[13/Apr/2025 09:35:31] "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+[13/Apr/2025 09:35:31] "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+[13/Apr/2025 09:35:31] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+[13/Apr/2025 09:35:31] "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+[13/Apr/2025 09:35:31] "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+[13/Apr/2025 09:35:43] "GET /static/admin/img/calendar-icons.svg HTTP/1.1" 200 2455
+[13/Apr/2025 09:35:53] "POST /admin/blog/post/add/ HTTP/1.1" 200 12963
+[13/Apr/2025 09:35:53] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[13/Apr/2025 09:35:56] "POST /admin/blog/post/add/ HTTP/1.1" 302 0
+[13/Apr/2025 09:35:56] "GET /admin/blog/post/add/ HTTP/1.1" 200 12966
+[13/Apr/2025 09:35:56] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[13/Apr/2025 09:35:56] "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+[13/Apr/2025 09:36:08] "POST /admin/blog/post/add/ HTTP/1.1" 302 0
+[13/Apr/2025 09:36:08] "GET /admin/blog/post/add/ HTTP/1.1" 200 12966
+[13/Apr/2025 09:36:08] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[13/Apr/2025 09:36:18] "POST /admin/blog/post/add/ HTTP/1.1" 302 0
+[13/Apr/2025 09:36:18] "GET /admin/blog/post/add/ HTTP/1.1" 200 12965
+[13/Apr/2025 09:36:18] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[13/Apr/2025 09:36:31] "POST /admin/blog/post/add/ HTTP/1.1" 302 0
+[13/Apr/2025 09:36:31] "GET /admin/blog/post/ HTTP/1.1" 200 10075
+[13/Apr/2025 09:36:31] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[13/Apr/2025 09:36:31] "GET /static/admin/css/changelists.css HTTP/1.1" 200 6878
+[13/Apr/2025 09:36:31] "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+[13/Apr/2025 09:36:31] "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
